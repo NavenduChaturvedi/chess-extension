@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Chess Game Review",
+  "description": "Analyzes completed Chess.com games locally with Stockfish WASM engine for move-by-move accuracy scoring.",
+  "version": "1.0.0",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.chess.com/game/*",
+        "*://*.chess.com/game/live/*"
+      ],
+      "js": ["dist/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "dist/service-worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "dist/popup/index.html"
+  },
+  "icons": {}
+}

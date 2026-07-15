@@ -1,0 +1,35 @@
+{
+  "name": "chess-game-review",
+  "version": "1.0.0",
+  "description": "Local chess game analysis extension with Stockfish WASM",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node build.js",
+    "build:popup": "vite build",
+    "build:content": "node build-content.mjs",
+    "build:sw": "node build-sw.mjs",
+    "copy-vendor": "cp -r vendor dist/",
+    "test": "tsx src/analysis/test-analyzer.ts"
+  },
+  "dependencies": {
+    "chess.js": "^1.0.0-beta.8",
+    "lucide-react": "^0.469.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stockfish": "^18.0.8"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.304",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7"
+  }
+}
